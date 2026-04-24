@@ -1,7 +1,7 @@
 {
   "name": "dream-sheet-server",
   "version": "0.0.1",
-  "description": "",
+  "description": "<<<<<<< HEAD\r # dream-sheet-server\r 꿈의교회 악보관리 서버\r =======\r <p align=\"center\">\r   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"120\" alt=\"Nest Logo\" /></a>\r </p>",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -21,9 +21,16 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.1",
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "git": "^0.1.5",
+    "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
@@ -33,6 +40,7 @@
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^11.0.1",
+    "@prisma/config": "^7.7.0",
     "@types/express": "^5.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.0",
@@ -43,6 +51,7 @@
     "globals": "^17.0.0",
     "jest": "^30.0.0",
     "prettier": "^3.4.2",
+    "prisma": "^7.7.0",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
@@ -68,5 +77,18 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmstar870802-dotcom/dream-sheet-server.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jmstar870802-dotcom/dream-sheet-server/issues"
+  },
+  "homepage": "https://github.com/jmstar870802-dotcom/dream-sheet-server#readme"
 }
