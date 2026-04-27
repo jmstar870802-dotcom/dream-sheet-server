@@ -17,15 +17,49 @@ let SheetService = class SheetService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async findAllSheet(title) {
-        const sheet_list = await this.prisma.sheet.findMany({
-            where: {
+    async findAllSheet(dto) {
+        const { title, key, page = 1, limit = 10, sortKey = "id", sortDir = "asc", } = dto;
+        const where = {
+            ...(title && {
                 title: {
-                    contains: title
-                }
-            }
-        });
-        return sheet_list;
+                    contains: title,
+                    mode: "insensitive",
+                },
+            }),
+            ...(key && {
+                key: {
+                    equals: key,
+                    mode: "insensitive",
+                },
+            }),
+        };
+        const [total, data] = await this.prisma.$transaction([
+            this.prisma.sheet.count({ where }),
+            this.prisma.sheet.findMany({
+                where,
+                orderBy: { [sortKey]: sortDir },
+                skip: (page - 1) * limit,
+                take: limit,
+                select: {
+                    id: true,
+                    title: true,
+                    key: true,
+                    lyrics: true,
+                },
+            }),
+        ]);
+        const totalPages = Math.ceil(total / limit);
+        return {
+            data,
+            meta: {
+                total,
+                page,
+                limit,
+                totalPages,
+                hasNext: page < totalPages,
+                hasPrev: page > 1,
+            },
+        };
     }
     async findOne(id) {
         const sheet_list = await this.prisma.sheet.findUnique({

@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { SheetService } from './sheet.service';
 import { CreateSheetDto } from './dto/create-sheet.dto';
 import { UpdateSheetDto } from './dto/update-sheet.dto';
+import { QuerySheetDto } from 'src/common/dto/queryDto';
 
 @Controller('sheet')
 export class SheetController {
@@ -9,8 +10,8 @@ export class SheetController {
 
   @Get()
   async findAll(
-    @Query() query ) {
-    return this.sheetService.findAllSheet(query.title);
+    @Query() query: QuerySheetDto) {
+    return this.sheetService.findAllSheet(query);
   }
 
   @Get(':id')

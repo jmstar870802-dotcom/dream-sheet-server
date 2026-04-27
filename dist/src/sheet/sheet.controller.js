@@ -17,13 +17,14 @@ const common_1 = require("@nestjs/common");
 const sheet_service_1 = require("./sheet.service");
 const create_sheet_dto_1 = require("./dto/create-sheet.dto");
 const update_sheet_dto_1 = require("./dto/update-sheet.dto");
+const queryDto_1 = require("../common/dto/queryDto");
 let SheetController = class SheetController {
     sheetService;
     constructor(sheetService) {
         this.sheetService = sheetService;
     }
     async findAll(query) {
-        return this.sheetService.findAllSheet(query.title);
+        return this.sheetService.findAllSheet(query);
     }
     findOne(id) {
         return this.sheetService.findOne(+id);
@@ -43,7 +44,7 @@ __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [queryDto_1.QuerySheetDto]),
     __metadata("design:returntype", Promise)
 ], SheetController.prototype, "findAll", null);
 __decorate([

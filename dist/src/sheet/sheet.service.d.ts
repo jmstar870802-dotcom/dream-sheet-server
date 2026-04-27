@@ -1,19 +1,12 @@
 import { CreateSheetDto } from './dto/create-sheet.dto';
 import { UpdateSheetDto } from './dto/update-sheet.dto';
 import { PrismaService } from "../prisma/prisma.service";
+import { PaginatedResult } from "../common/entities/paginatedResult";
+import { QuerySheetDto } from "../common/dto/queryDto";
 export declare class SheetService {
     private prisma;
     constructor(prisma: PrismaService);
-    findAllSheet(title: string): Promise<{
-        id: number;
-        title: string;
-        key: string;
-        lyrics: string;
-        notation: string;
-        img_url: string;
-        createdAt: Date;
-        updatedAt: Date;
-    }[]>;
+    findAllSheet(dto: QuerySheetDto): Promise<PaginatedResult<any>>;
     findOne(id: number): Promise<{
         id: number;
         title: string;
