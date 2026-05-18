@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defineExtension = exports.QueryMode = exports.SortOrder = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
+exports.defineExtension = exports.QueryMode = exports.SortOrder = exports.ReportContentScalarFieldEnum = exports.ReportHeaderScalarFieldEnum = exports.CellMemberScalarFieldEnum = exports.LeaderMemberScalarFieldEnum = exports.MemberScalarFieldEnum = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/client"));
 exports.PrismaClientKnownRequestError = runtime.PrismaClientKnownRequestError;
 exports.PrismaClientUnknownRequestError = runtime.PrismaClientUnknownRequestError;
@@ -48,8 +48,8 @@ exports.Sql = runtime.Sql;
 exports.Decimal = runtime.Decimal;
 exports.getExtensionContext = runtime.Extensions.getExtensionContext;
 exports.prismaVersion = {
-    client: "7.7.0",
-    engine: "75cbdc1eb7150937890ad5465d861175c6624711"
+    client: "7.8.0",
+    engine: "3c6e192761c0362d496ed980de936e2f3cebcd3a"
 };
 exports.NullTypes = {
     DbNull: runtime.NullTypes.DbNull,
@@ -60,7 +60,12 @@ exports.DbNull = runtime.DbNull;
 exports.JsonNull = runtime.JsonNull;
 exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
-    Sheet: 'Sheet'
+    Sheet: 'Sheet',
+    Member: 'Member',
+    LeaderMember: 'LeaderMember',
+    CellMember: 'CellMember',
+    ReportHeader: 'ReportHeader',
+    ReportContent: 'ReportContent'
 };
 exports.TransactionIsolationLevel = runtime.makeStrictEnum({
     ReadUncommitted: 'ReadUncommitted',
@@ -77,6 +82,39 @@ exports.SheetScalarFieldEnum = {
     img_url: 'img_url',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
+};
+exports.MemberScalarFieldEnum = {
+    id: 'id',
+    userName: 'userName',
+    birthday: 'birthday',
+    mngrSe: 'mngrSe'
+};
+exports.LeaderMemberScalarFieldEnum = {
+    id: 'id',
+    LeaderId: 'LeaderId',
+    UseYn: 'UseYn'
+};
+exports.CellMemberScalarFieldEnum = {
+    id: 'id',
+    MemberId: 'MemberId',
+    LeaderId: 'LeaderId'
+};
+exports.ReportHeaderScalarFieldEnum = {
+    id: 'id',
+    writeDt: 'writeDt',
+    meetingPlace: 'meetingPlace',
+    bigoMaster: 'bigoMaster',
+    LeaderId: 'LeaderId'
+};
+exports.ReportContentScalarFieldEnum = {
+    id: 'id',
+    memberNm: 'memberNm',
+    wesDay: 'wesDay',
+    sundayAf: 'sundayAf',
+    sundayNt: 'sundayNt',
+    cellMeeting: 'cellMeeting',
+    bigo: 'bigo',
+    reportId: 'reportId'
 };
 exports.SortOrder = {
     asc: 'asc',

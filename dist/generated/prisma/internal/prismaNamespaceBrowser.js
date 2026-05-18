@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryMode = exports.SortOrder = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+exports.QueryMode = exports.SortOrder = exports.ReportContentScalarFieldEnum = exports.ReportHeaderScalarFieldEnum = exports.CellMemberScalarFieldEnum = exports.LeaderMemberScalarFieldEnum = exports.MemberScalarFieldEnum = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
 exports.Decimal = runtime.Decimal;
 exports.NullTypes = {
@@ -45,7 +45,12 @@ exports.DbNull = runtime.DbNull;
 exports.JsonNull = runtime.JsonNull;
 exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
-    Sheet: 'Sheet'
+    Sheet: 'Sheet',
+    Member: 'Member',
+    LeaderMember: 'LeaderMember',
+    CellMember: 'CellMember',
+    ReportHeader: 'ReportHeader',
+    ReportContent: 'ReportContent'
 };
 exports.TransactionIsolationLevel = runtime.makeStrictEnum({
     ReadUncommitted: 'ReadUncommitted',
@@ -62,6 +67,39 @@ exports.SheetScalarFieldEnum = {
     img_url: 'img_url',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
+};
+exports.MemberScalarFieldEnum = {
+    id: 'id',
+    userName: 'userName',
+    birthday: 'birthday',
+    mngrSe: 'mngrSe'
+};
+exports.LeaderMemberScalarFieldEnum = {
+    id: 'id',
+    LeaderId: 'LeaderId',
+    UseYn: 'UseYn'
+};
+exports.CellMemberScalarFieldEnum = {
+    id: 'id',
+    MemberId: 'MemberId',
+    LeaderId: 'LeaderId'
+};
+exports.ReportHeaderScalarFieldEnum = {
+    id: 'id',
+    writeDt: 'writeDt',
+    meetingPlace: 'meetingPlace',
+    bigoMaster: 'bigoMaster',
+    LeaderId: 'LeaderId'
+};
+exports.ReportContentScalarFieldEnum = {
+    id: 'id',
+    memberNm: 'memberNm',
+    wesDay: 'wesDay',
+    sundayAf: 'sundayAf',
+    sundayNt: 'sundayNt',
+    cellMeeting: 'cellMeeting',
+    bigo: 'bigo',
+    reportId: 'reportId'
 };
 exports.SortOrder = {
     asc: 'asc',

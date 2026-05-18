@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { SheetModule } from './sheet/sheet.module';
+import { MemberModule } from './member/member.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { SheetModule } from './sheet/sheet.module';
     }),
     PrismaModule,
     SheetModule,
+    MemberModule,
   ],
   controllers: [AppController],
   providers: [AppService],

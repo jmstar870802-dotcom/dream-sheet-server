@@ -7,3 +7,8 @@ export declare const PrismaClient: $Class.PrismaClientConstructor;
 export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts extends Prisma.PrismaClientOptions["omit"] = Prisma.PrismaClientOptions["omit"], ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = $Class.PrismaClient<LogOpts, OmitOpts, ExtArgs>;
 export { Prisma };
 export type Sheet = Prisma.SheetModel;
+export type Member = Prisma.MemberModel;
+export type LeaderMember = Prisma.LeaderMemberModel;
+export type CellMember = Prisma.CellMemberModel;
+export type ReportHeader = Prisma.ReportHeaderModel;
+export type ReportContent = Prisma.ReportContentModel;

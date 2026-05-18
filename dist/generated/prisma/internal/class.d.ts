@@ -18,6 +18,8 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
     $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
     $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: {
+        maxWait?: number;
+        timeout?: number;
         isolationLevel?: Prisma.TransactionIsolationLevel;
     }): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>;
     $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => runtime.Types.Utils.JsPromise<R>, options?: {
@@ -29,6 +31,21 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         extArgs: ExtArgs;
     }>>;
     get sheet(): Prisma.SheetDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    get member(): Prisma.MemberDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    get leaderMember(): Prisma.LeaderMemberDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    get cellMember(): Prisma.CellMemberDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    get reportHeader(): Prisma.ReportHeaderDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    get reportContent(): Prisma.ReportContentDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }

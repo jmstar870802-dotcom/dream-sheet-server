@@ -22,3 +22,28 @@ export * from './enums.js';
  * 
  */
 export type Sheet = Prisma.SheetModel
+/**
+ * Model Member
+ * 
+ */
+export type Member = Prisma.MemberModel
+/**
+ * Model LeaderMember
+ * 
+ */
+export type LeaderMember = Prisma.LeaderMemberModel
+/**
+ * Model CellMember
+ * 
+ */
+export type CellMember = Prisma.CellMemberModel
+/**
+ * Model ReportHeader
+ * 
+ */
+export type ReportHeader = Prisma.ReportHeaderModel
+/**
+ * Model ReportContent
+ * 
+ */
+export type ReportContent = Prisma.ReportContentModel

@@ -51,7 +51,12 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Sheet: 'Sheet'
+  Sheet: 'Sheet',
+  Member: 'Member',
+  LeaderMember: 'LeaderMember',
+  CellMember: 'CellMember',
+  ReportHeader: 'ReportHeader',
+  ReportContent: 'ReportContent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -82,6 +87,59 @@ export const SheetScalarFieldEnum = {
 } as const
 
 export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum]
+
+
+export const MemberScalarFieldEnum = {
+  id: 'id',
+  userName: 'userName',
+  birthday: 'birthday',
+  mngrSe: 'mngrSe'
+} as const
+
+export type MemberScalarFieldEnum = (typeof MemberScalarFieldEnum)[keyof typeof MemberScalarFieldEnum]
+
+
+export const LeaderMemberScalarFieldEnum = {
+  id: 'id',
+  LeaderId: 'LeaderId',
+  UseYn: 'UseYn'
+} as const
+
+export type LeaderMemberScalarFieldEnum = (typeof LeaderMemberScalarFieldEnum)[keyof typeof LeaderMemberScalarFieldEnum]
+
+
+export const CellMemberScalarFieldEnum = {
+  id: 'id',
+  MemberId: 'MemberId',
+  LeaderId: 'LeaderId'
+} as const
+
+export type CellMemberScalarFieldEnum = (typeof CellMemberScalarFieldEnum)[keyof typeof CellMemberScalarFieldEnum]
+
+
+export const ReportHeaderScalarFieldEnum = {
+  id: 'id',
+  writeDt: 'writeDt',
+  meetingPlace: 'meetingPlace',
+  bigoMaster: 'bigoMaster',
+  LeaderId: 'LeaderId'
+} as const
+
+export type ReportHeaderScalarFieldEnum = (typeof ReportHeaderScalarFieldEnum)[keyof typeof ReportHeaderScalarFieldEnum]
+
+
+export const ReportContentScalarFieldEnum = {
+  id: 'id',
+  memberNm: 'memberNm',
+  wesDay: 'wesDay',
+  sundayAf: 'sundayAf',
+  sundayNt: 'sundayNt',
+  cellMeeting: 'cellMeeting',
+  bigo: 'bigo',
+  reportId: 'reportId'
+} as const
+
+export type ReportContentScalarFieldEnum = (typeof ReportContentScalarFieldEnum)[keyof typeof ReportContentScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -10,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
 }
 
 model Sheet{
@@ -22,4 +22,57 @@ model Sheet{
   img_url String
   createdAt DateTime @default(now()) 
   updatedAt DateTime @default(now()) 
+}
+
+model Member {
+  id Int @id @default(autoincrement())
+  userName String
+  birthday  String
+  mngrSe String
+
+  leaderMember LeaderMember[]
+}
+
+model LeaderMember {
+  id Int @id @default(autoincrement())
+  LeaderId Int @unique
+  UseYn String
+
+  member Member @relation(fields: [LeaderId], references: [id], onDelete: Cascade)
+  cellMember CellMember[]
+  reportHeader ReportHeader[]
+}
+
+model CellMember{
+  id Int @id @default(autoincrement())
+  MemberId Int @unique
+
+  LeaderId Int 
+  leaderMember LeaderMember @relation(fields: [LeaderId], references: [LeaderId], onDelete: Cascade)
+}
+
+model ReportHeader{
+  id Int @id @default(autoincrement())
+
+  writeDt String
+  meetingPlace String
+  bigoMaster String
+  
+  LeaderId Int 
+  leaderMember LeaderMember @relation(fields: [LeaderId], references: [LeaderId], onDelete: Cascade)
+
+  reportContent ReportContent[]
+}
+
+model ReportContent{
+  id Int @id @default(autoincrement())
+  memberNm String
+  wesDay Boolean
+  sundayAf Boolean
+  sundayNt Boolean
+  cellMeeting Boolean
+  bigo String
+
+  reportId Int
+  reportHeader ReportHeader @relation(fields: [reportId], references: [id], onDelete: Cascade)
 }

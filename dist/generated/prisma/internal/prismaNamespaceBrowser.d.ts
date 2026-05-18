@@ -12,6 +12,11 @@ export declare const JsonNull: import("@prisma/client-runtime-utils").JsonNullCl
 export declare const AnyNull: import("@prisma/client-runtime-utils").AnyNullClass;
 export declare const ModelName: {
     readonly Sheet: "Sheet";
+    readonly Member: "Member";
+    readonly LeaderMember: "LeaderMember";
+    readonly CellMember: "CellMember";
+    readonly ReportHeader: "ReportHeader";
+    readonly ReportContent: "ReportContent";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -32,6 +37,44 @@ export declare const SheetScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum];
+export declare const MemberScalarFieldEnum: {
+    readonly id: "id";
+    readonly userName: "userName";
+    readonly birthday: "birthday";
+    readonly mngrSe: "mngrSe";
+};
+export type MemberScalarFieldEnum = (typeof MemberScalarFieldEnum)[keyof typeof MemberScalarFieldEnum];
+export declare const LeaderMemberScalarFieldEnum: {
+    readonly id: "id";
+    readonly LeaderId: "LeaderId";
+    readonly UseYn: "UseYn";
+};
+export type LeaderMemberScalarFieldEnum = (typeof LeaderMemberScalarFieldEnum)[keyof typeof LeaderMemberScalarFieldEnum];
+export declare const CellMemberScalarFieldEnum: {
+    readonly id: "id";
+    readonly MemberId: "MemberId";
+    readonly LeaderId: "LeaderId";
+};
+export type CellMemberScalarFieldEnum = (typeof CellMemberScalarFieldEnum)[keyof typeof CellMemberScalarFieldEnum];
+export declare const ReportHeaderScalarFieldEnum: {
+    readonly id: "id";
+    readonly writeDt: "writeDt";
+    readonly meetingPlace: "meetingPlace";
+    readonly bigoMaster: "bigoMaster";
+    readonly LeaderId: "LeaderId";
+};
+export type ReportHeaderScalarFieldEnum = (typeof ReportHeaderScalarFieldEnum)[keyof typeof ReportHeaderScalarFieldEnum];
+export declare const ReportContentScalarFieldEnum: {
+    readonly id: "id";
+    readonly memberNm: "memberNm";
+    readonly wesDay: "wesDay";
+    readonly sundayAf: "sundayAf";
+    readonly sundayNt: "sundayNt";
+    readonly cellMeeting: "cellMeeting";
+    readonly bigo: "bigo";
+    readonly reportId: "reportId";
+};
+export type ReportContentScalarFieldEnum = (typeof ReportContentScalarFieldEnum)[keyof typeof ReportContentScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
