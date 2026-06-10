@@ -107,7 +107,7 @@ export class SheetService {
       .catch((err) => console.log(err));
 
     if (!beforeUpdateData) {
-      throw new NotFoundException(`${id}번 도서는 존재하지 않습니다`);
+      throw new NotFoundException(`${id}번 악보는 존재하지 않습니다.`);
     }
 
     return await this.prisma.sheet.update({
