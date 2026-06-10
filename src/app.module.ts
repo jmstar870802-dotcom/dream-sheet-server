@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { SheetModule } from './sheet/sheet.module';
 import { MemberModule } from './member/member.module';
+import { ContiModule } from './conti/conti.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { MemberModule } from './member/member.module';
     PrismaModule,
     SheetModule,
     MemberModule,
+    ContiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Sheet: 'Sheet',
+  Conti: 'Conti',
   Member: 'Member',
   LeaderMember: 'LeaderMember',
   CellMember: 'CellMember',
@@ -87,6 +88,20 @@ export const SheetScalarFieldEnum = {
 } as const
 
 export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum]
+
+
+export const ContiScalarFieldEnum = {
+  id: 'id',
+  contiDate: 'contiDate',
+  contiNote: 'contiNote',
+  contiNotation: 'contiNotation',
+  conti_img_url: 'conti_img_url',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  SheetId: 'SheetId'
+} as const
+
+export type ContiScalarFieldEnum = (typeof ContiScalarFieldEnum)[keyof typeof ContiScalarFieldEnum]
 
 
 export const MemberScalarFieldEnum = {

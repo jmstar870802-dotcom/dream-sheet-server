@@ -12,6 +12,7 @@ export declare const JsonNull: import("@prisma/client-runtime-utils").JsonNullCl
 export declare const AnyNull: import("@prisma/client-runtime-utils").AnyNullClass;
 export declare const ModelName: {
     readonly Sheet: "Sheet";
+    readonly Conti: "Conti";
     readonly Member: "Member";
     readonly LeaderMember: "LeaderMember";
     readonly CellMember: "CellMember";
@@ -37,6 +38,17 @@ export declare const SheetScalarFieldEnum: {
     readonly updatedAt: "updatedAt";
 };
 export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum];
+export declare const ContiScalarFieldEnum: {
+    readonly id: "id";
+    readonly contiDate: "contiDate";
+    readonly contiNote: "contiNote";
+    readonly contiNotation: "contiNotation";
+    readonly conti_img_url: "conti_img_url";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+    readonly SheetId: "SheetId";
+};
+export type ContiScalarFieldEnum = (typeof ContiScalarFieldEnum)[keyof typeof ContiScalarFieldEnum];
 export declare const MemberScalarFieldEnum: {
     readonly id: "id";
     readonly userName: "userName";

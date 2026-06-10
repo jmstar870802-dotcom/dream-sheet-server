@@ -385,6 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Sheet: 'Sheet',
+  Conti: 'Conti',
   Member: 'Member',
   LeaderMember: 'LeaderMember',
   CellMember: 'CellMember',
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "sheet" | "member" | "leaderMember" | "cellMember" | "reportHeader" | "reportContent"
+    modelProps: "sheet" | "conti" | "member" | "leaderMember" | "cellMember" | "reportHeader" | "reportContent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -480,6 +481,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.SheetCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.SheetCountAggregateOutputType> | number
+        }
+      }
+    }
+    Conti: {
+      payload: Prisma.$ContiPayload<ExtArgs>
+      fields: Prisma.ContiFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ContiFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ContiFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        findFirst: {
+          args: Prisma.ContiFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ContiFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        findMany: {
+          args: Prisma.ContiFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>[]
+        }
+        create: {
+          args: Prisma.ContiCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        createMany: {
+          args: Prisma.ContiCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ContiCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>[]
+        }
+        delete: {
+          args: Prisma.ContiDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        update: {
+          args: Prisma.ContiUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        deleteMany: {
+          args: Prisma.ContiDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ContiUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ContiUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>[]
+        }
+        upsert: {
+          args: Prisma.ContiUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiPayload>
+        }
+        aggregate: {
+          args: Prisma.ContiAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateConti>
+        }
+        groupBy: {
+          args: Prisma.ContiGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContiGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ContiCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContiCountAggregateOutputType> | number
         }
       }
     }
@@ -906,6 +981,20 @@ export const SheetScalarFieldEnum = {
 export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum]
 
 
+export const ContiScalarFieldEnum = {
+  id: 'id',
+  contiDate: 'contiDate',
+  contiNote: 'contiNote',
+  contiNotation: 'contiNotation',
+  conti_img_url: 'conti_img_url',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  SheetId: 'SheetId'
+} as const
+
+export type ContiScalarFieldEnum = (typeof ContiScalarFieldEnum)[keyof typeof ContiScalarFieldEnum]
+
+
 export const MemberScalarFieldEnum = {
   id: 'id',
   userName: 'userName',
@@ -1154,6 +1243,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   sheet?: Prisma.SheetOmit
+  conti?: Prisma.ContiOmit
   member?: Prisma.MemberOmit
   leaderMember?: Prisma.LeaderMemberOmit
   cellMember?: Prisma.CellMemberOmit

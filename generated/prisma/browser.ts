@@ -23,6 +23,11 @@ export * from './enums.js';
  */
 export type Sheet = Prisma.SheetModel
 /**
+ * Model Conti
+ * 
+ */
+export type Conti = Prisma.ContiModel
+/**
  * Model Member
  * 
  */

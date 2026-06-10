@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryMode = exports.SortOrder = exports.ReportContentScalarFieldEnum = exports.ReportHeaderScalarFieldEnum = exports.CellMemberScalarFieldEnum = exports.LeaderMemberScalarFieldEnum = exports.MemberScalarFieldEnum = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+exports.QueryMode = exports.SortOrder = exports.ReportContentScalarFieldEnum = exports.ReportHeaderScalarFieldEnum = exports.CellMemberScalarFieldEnum = exports.LeaderMemberScalarFieldEnum = exports.MemberScalarFieldEnum = exports.ContiScalarFieldEnum = exports.SheetScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
 exports.Decimal = runtime.Decimal;
 exports.NullTypes = {
@@ -46,6 +46,7 @@ exports.JsonNull = runtime.JsonNull;
 exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
     Sheet: 'Sheet',
+    Conti: 'Conti',
     Member: 'Member',
     LeaderMember: 'LeaderMember',
     CellMember: 'CellMember',
@@ -67,6 +68,16 @@ exports.SheetScalarFieldEnum = {
     img_url: 'img_url',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
+};
+exports.ContiScalarFieldEnum = {
+    id: 'id',
+    contiDate: 'contiDate',
+    contiNote: 'contiNote',
+    contiNotation: 'contiNotation',
+    conti_img_url: 'conti_img_url',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    SheetId: 'SheetId'
 };
 exports.MemberScalarFieldEnum = {
     id: 'id',

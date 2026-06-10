@@ -140,6 +140,7 @@ export type SheetWhereInput = {
     img_url?: Prisma.StringFilter<"Sheet"> | string;
     createdAt?: Prisma.DateTimeFilter<"Sheet"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Sheet"> | Date | string;
+    Conti?: Prisma.ContiListRelationFilter;
 };
 export type SheetOrderByWithRelationInput = {
     id?: Prisma.SortOrder;
@@ -150,6 +151,7 @@ export type SheetOrderByWithRelationInput = {
     img_url?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
+    Conti?: Prisma.ContiOrderByRelationAggregateInput;
 };
 export type SheetWhereUniqueInput = Prisma.AtLeast<{
     id?: number;
@@ -163,6 +165,7 @@ export type SheetWhereUniqueInput = Prisma.AtLeast<{
     img_url?: Prisma.StringFilter<"Sheet"> | string;
     createdAt?: Prisma.DateTimeFilter<"Sheet"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Sheet"> | Date | string;
+    Conti?: Prisma.ContiListRelationFilter;
 }, "id">;
 export type SheetOrderByWithAggregationInput = {
     id?: Prisma.SortOrder;
@@ -200,6 +203,7 @@ export type SheetCreateInput = {
     img_url: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    Conti?: Prisma.ContiCreateNestedManyWithoutSheetInput;
 };
 export type SheetUncheckedCreateInput = {
     id?: number;
@@ -210,6 +214,7 @@ export type SheetUncheckedCreateInput = {
     img_url: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    Conti?: Prisma.ContiUncheckedCreateNestedManyWithoutSheetInput;
 };
 export type SheetUpdateInput = {
     title?: Prisma.StringFieldUpdateOperationsInput | string;
@@ -219,6 +224,7 @@ export type SheetUpdateInput = {
     img_url?: Prisma.StringFieldUpdateOperationsInput | string;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Conti?: Prisma.ContiUpdateManyWithoutSheetNestedInput;
 };
 export type SheetUncheckedUpdateInput = {
     id?: Prisma.IntFieldUpdateOperationsInput | number;
@@ -229,6 +235,7 @@ export type SheetUncheckedUpdateInput = {
     img_url?: Prisma.StringFieldUpdateOperationsInput | string;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    Conti?: Prisma.ContiUncheckedUpdateManyWithoutSheetNestedInput;
 };
 export type SheetCreateManyInput = {
     id?: number;
@@ -295,6 +302,10 @@ export type SheetMinOrderByAggregateInput = {
 export type SheetSumOrderByAggregateInput = {
     id?: Prisma.SortOrder;
 };
+export type SheetScalarRelationFilter = {
+    is?: Prisma.SheetWhereInput;
+    isNot?: Prisma.SheetWhereInput;
+};
 export type StringFieldUpdateOperationsInput = {
     set?: string;
 };
@@ -308,6 +319,81 @@ export type IntFieldUpdateOperationsInput = {
     multiply?: number;
     divide?: number;
 };
+export type SheetCreateNestedOneWithoutContiInput = {
+    create?: Prisma.XOR<Prisma.SheetCreateWithoutContiInput, Prisma.SheetUncheckedCreateWithoutContiInput>;
+    connectOrCreate?: Prisma.SheetCreateOrConnectWithoutContiInput;
+    connect?: Prisma.SheetWhereUniqueInput;
+};
+export type SheetUpdateOneRequiredWithoutContiNestedInput = {
+    create?: Prisma.XOR<Prisma.SheetCreateWithoutContiInput, Prisma.SheetUncheckedCreateWithoutContiInput>;
+    connectOrCreate?: Prisma.SheetCreateOrConnectWithoutContiInput;
+    upsert?: Prisma.SheetUpsertWithoutContiInput;
+    connect?: Prisma.SheetWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.SheetUpdateToOneWithWhereWithoutContiInput, Prisma.SheetUpdateWithoutContiInput>, Prisma.SheetUncheckedUpdateWithoutContiInput>;
+};
+export type SheetCreateWithoutContiInput = {
+    title: string;
+    key: string;
+    lyrics: string;
+    notation: string;
+    img_url: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type SheetUncheckedCreateWithoutContiInput = {
+    id?: number;
+    title: string;
+    key: string;
+    lyrics: string;
+    notation: string;
+    img_url: string;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type SheetCreateOrConnectWithoutContiInput = {
+    where: Prisma.SheetWhereUniqueInput;
+    create: Prisma.XOR<Prisma.SheetCreateWithoutContiInput, Prisma.SheetUncheckedCreateWithoutContiInput>;
+};
+export type SheetUpsertWithoutContiInput = {
+    update: Prisma.XOR<Prisma.SheetUpdateWithoutContiInput, Prisma.SheetUncheckedUpdateWithoutContiInput>;
+    create: Prisma.XOR<Prisma.SheetCreateWithoutContiInput, Prisma.SheetUncheckedCreateWithoutContiInput>;
+    where?: Prisma.SheetWhereInput;
+};
+export type SheetUpdateToOneWithWhereWithoutContiInput = {
+    where?: Prisma.SheetWhereInput;
+    data: Prisma.XOR<Prisma.SheetUpdateWithoutContiInput, Prisma.SheetUncheckedUpdateWithoutContiInput>;
+};
+export type SheetUpdateWithoutContiInput = {
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    key?: Prisma.StringFieldUpdateOperationsInput | string;
+    lyrics?: Prisma.StringFieldUpdateOperationsInput | string;
+    notation?: Prisma.StringFieldUpdateOperationsInput | string;
+    img_url?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type SheetUncheckedUpdateWithoutContiInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    title?: Prisma.StringFieldUpdateOperationsInput | string;
+    key?: Prisma.StringFieldUpdateOperationsInput | string;
+    lyrics?: Prisma.StringFieldUpdateOperationsInput | string;
+    notation?: Prisma.StringFieldUpdateOperationsInput | string;
+    img_url?: Prisma.StringFieldUpdateOperationsInput | string;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type SheetCountOutputType = {
+    Conti: number;
+};
+export type SheetCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    Conti?: boolean | SheetCountOutputTypeCountContiArgs;
+};
+export type SheetCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.SheetCountOutputTypeSelect<ExtArgs> | null;
+};
+export type SheetCountOutputTypeCountContiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.ContiWhereInput;
+};
 export type SheetSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
     title?: boolean;
@@ -317,6 +403,8 @@ export type SheetSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
     img_url?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
+    Conti?: boolean | Prisma.Sheet$ContiArgs<ExtArgs>;
+    _count?: boolean | Prisma.SheetCountOutputTypeDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["sheet"]>;
 export type SheetSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
     id?: boolean;
@@ -349,9 +437,17 @@ export type SheetSelectScalar = {
     updatedAt?: boolean;
 };
 export type SheetOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "key" | "lyrics" | "notation" | "img_url" | "createdAt" | "updatedAt", ExtArgs["result"]["sheet"]>;
+export type SheetInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    Conti?: boolean | Prisma.Sheet$ContiArgs<ExtArgs>;
+    _count?: boolean | Prisma.SheetCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type SheetIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
+export type SheetIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
 export type $SheetPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     name: "Sheet";
-    objects: {};
+    objects: {
+        Conti: Prisma.$ContiPayload<ExtArgs>[];
+    };
     scalars: runtime.Types.Extensions.GetPayloadResult<{
         id: number;
         title: string;
@@ -413,6 +509,7 @@ export interface SheetDelegate<ExtArgs extends runtime.Types.Extensions.Internal
 }
 export interface Prisma__SheetClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise";
+    Conti<T extends Prisma.Sheet$ContiArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sheet$ContiArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
     then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
     catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
     finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
@@ -430,16 +527,19 @@ export interface SheetFieldRefs {
 export type SheetFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where: Prisma.SheetWhereUniqueInput;
 };
 export type SheetFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where: Prisma.SheetWhereUniqueInput;
 };
 export type SheetFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where?: Prisma.SheetWhereInput;
     orderBy?: Prisma.SheetOrderByWithRelationInput | Prisma.SheetOrderByWithRelationInput[];
     cursor?: Prisma.SheetWhereUniqueInput;
@@ -450,6 +550,7 @@ export type SheetFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type SheetFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where?: Prisma.SheetWhereInput;
     orderBy?: Prisma.SheetOrderByWithRelationInput | Prisma.SheetOrderByWithRelationInput[];
     cursor?: Prisma.SheetWhereUniqueInput;
@@ -460,6 +561,7 @@ export type SheetFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
 export type SheetFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where?: Prisma.SheetWhereInput;
     orderBy?: Prisma.SheetOrderByWithRelationInput | Prisma.SheetOrderByWithRelationInput[];
     cursor?: Prisma.SheetWhereUniqueInput;
@@ -470,6 +572,7 @@ export type SheetFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 export type SheetCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     data: Prisma.XOR<Prisma.SheetCreateInput, Prisma.SheetUncheckedCreateInput>;
 };
 export type SheetCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -485,6 +588,7 @@ export type SheetCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
 export type SheetUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     data: Prisma.XOR<Prisma.SheetUpdateInput, Prisma.SheetUncheckedUpdateInput>;
     where: Prisma.SheetWhereUniqueInput;
 };
@@ -503,6 +607,7 @@ export type SheetUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
 export type SheetUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where: Prisma.SheetWhereUniqueInput;
     create: Prisma.XOR<Prisma.SheetCreateInput, Prisma.SheetUncheckedCreateInput>;
     update: Prisma.XOR<Prisma.SheetUpdateInput, Prisma.SheetUncheckedUpdateInput>;
@@ -510,13 +615,26 @@ export type SheetUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type SheetDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
     where: Prisma.SheetWhereUniqueInput;
 };
 export type SheetDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     where?: Prisma.SheetWhereInput;
     limit?: number;
 };
+export type Sheet$ContiArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    select?: Prisma.ContiSelect<ExtArgs> | null;
+    omit?: Prisma.ContiOmit<ExtArgs> | null;
+    include?: Prisma.ContiInclude<ExtArgs> | null;
+    where?: Prisma.ContiWhereInput;
+    orderBy?: Prisma.ContiOrderByWithRelationInput | Prisma.ContiOrderByWithRelationInput[];
+    cursor?: Prisma.ContiWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.ContiScalarFieldEnum | Prisma.ContiScalarFieldEnum[];
+};
 export type SheetDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     select?: Prisma.SheetSelect<ExtArgs> | null;
     omit?: Prisma.SheetOmit<ExtArgs> | null;
+    include?: Prisma.SheetInclude<ExtArgs> | null;
 };

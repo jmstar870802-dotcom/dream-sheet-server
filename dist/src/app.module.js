@@ -14,6 +14,7 @@ const config_1 = require("@nestjs/config");
 const prisma_module_1 = require("./prisma/prisma.module");
 const sheet_module_1 = require("./sheet/sheet.module");
 const member_module_1 = require("./member/member.module");
+const conti_module_1 = require("./conti/conti.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,6 +27,7 @@ exports.AppModule = AppModule = __decorate([
             prisma_module_1.PrismaModule,
             sheet_module_1.SheetModule,
             member_module_1.MemberModule,
+            conti_module_1.ContiModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
