@@ -23,8 +23,8 @@ export declare class ContiService {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            contiNotation: string;
-            conti_img_url: string;
+            contiNotation: string | null;
+            conti_img_url: string | null;
             contiOrder: number;
             ContiId: number;
             SheetId: number;
@@ -53,8 +53,8 @@ export declare class ContiService {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            contiNotation: string;
-            conti_img_url: string;
+            contiNotation: string | null;
+            conti_img_url: string | null;
             contiOrder: number;
             ContiId: number;
             SheetId: number;
@@ -83,8 +83,8 @@ export declare class ContiService {
             id: number;
             createdAt: Date;
             updatedAt: Date;
-            contiNotation: string;
-            conti_img_url: string;
+            contiNotation: string | null;
+            conti_img_url: string | null;
             contiOrder: number;
             ContiId: number;
             SheetId: number;

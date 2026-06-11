@@ -211,8 +211,8 @@ export type ContiDtlGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type ContiDtlGroupByOutputType = {
   id: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation: string | null
+  conti_img_url: string | null
   contiOrder: number
   createdAt: Date
   updatedAt: Date
@@ -245,8 +245,8 @@ export type ContiDtlWhereInput = {
   OR?: Prisma.ContiDtlWhereInput[]
   NOT?: Prisma.ContiDtlWhereInput | Prisma.ContiDtlWhereInput[]
   id?: Prisma.IntFilter<"ContiDtl"> | number
-  contiNotation?: Prisma.StringFilter<"ContiDtl"> | string
-  conti_img_url?: Prisma.StringFilter<"ContiDtl"> | string
+  contiNotation?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
+  conti_img_url?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
   contiOrder?: Prisma.IntFilter<"ContiDtl"> | number
   createdAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
@@ -258,8 +258,8 @@ export type ContiDtlWhereInput = {
 
 export type ContiDtlOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiNotation?: Prisma.SortOrderInput | Prisma.SortOrder
+  conti_img_url?: Prisma.SortOrderInput | Prisma.SortOrder
   contiOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -274,8 +274,8 @@ export type ContiDtlWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ContiDtlWhereInput | Prisma.ContiDtlWhereInput[]
   OR?: Prisma.ContiDtlWhereInput[]
   NOT?: Prisma.ContiDtlWhereInput | Prisma.ContiDtlWhereInput[]
-  contiNotation?: Prisma.StringFilter<"ContiDtl"> | string
-  conti_img_url?: Prisma.StringFilter<"ContiDtl"> | string
+  contiNotation?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
+  conti_img_url?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
   contiOrder?: Prisma.IntFilter<"ContiDtl"> | number
   createdAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
@@ -287,8 +287,8 @@ export type ContiDtlWhereUniqueInput = Prisma.AtLeast<{
 
 export type ContiDtlOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiNotation?: Prisma.SortOrderInput | Prisma.SortOrder
+  conti_img_url?: Prisma.SortOrderInput | Prisma.SortOrder
   contiOrder?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -306,8 +306,8 @@ export type ContiDtlScalarWhereWithAggregatesInput = {
   OR?: Prisma.ContiDtlScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ContiDtlScalarWhereWithAggregatesInput | Prisma.ContiDtlScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"ContiDtl"> | number
-  contiNotation?: Prisma.StringWithAggregatesFilter<"ContiDtl"> | string
-  conti_img_url?: Prisma.StringWithAggregatesFilter<"ContiDtl"> | string
+  contiNotation?: Prisma.StringNullableWithAggregatesFilter<"ContiDtl"> | string | null
+  conti_img_url?: Prisma.StringNullableWithAggregatesFilter<"ContiDtl"> | string | null
   contiOrder?: Prisma.IntWithAggregatesFilter<"ContiDtl"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ContiDtl"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ContiDtl"> | Date | string
@@ -316,8 +316,8 @@ export type ContiDtlScalarWhereWithAggregatesInput = {
 }
 
 export type ContiDtlCreateInput = {
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -327,8 +327,8 @@ export type ContiDtlCreateInput = {
 
 export type ContiDtlUncheckedCreateInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -337,8 +337,8 @@ export type ContiDtlUncheckedCreateInput = {
 }
 
 export type ContiDtlUpdateInput = {
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -348,8 +348,8 @@ export type ContiDtlUpdateInput = {
 
 export type ContiDtlUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -359,8 +359,8 @@ export type ContiDtlUncheckedUpdateInput = {
 
 export type ContiDtlCreateManyInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -369,8 +369,8 @@ export type ContiDtlCreateManyInput = {
 }
 
 export type ContiDtlUpdateManyMutationInput = {
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -378,8 +378,8 @@ export type ContiDtlUpdateManyMutationInput = {
 
 export type ContiDtlUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -528,9 +528,13 @@ export type ContiDtlUncheckedUpdateManyWithoutContiNestedInput = {
   deleteMany?: Prisma.ContiDtlScalarWhereInput | Prisma.ContiDtlScalarWhereInput[]
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type ContiDtlCreateWithoutSheetInput = {
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -539,8 +543,8 @@ export type ContiDtlCreateWithoutSheetInput = {
 
 export type ContiDtlUncheckedCreateWithoutSheetInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -578,8 +582,8 @@ export type ContiDtlScalarWhereInput = {
   OR?: Prisma.ContiDtlScalarWhereInput[]
   NOT?: Prisma.ContiDtlScalarWhereInput | Prisma.ContiDtlScalarWhereInput[]
   id?: Prisma.IntFilter<"ContiDtl"> | number
-  contiNotation?: Prisma.StringFilter<"ContiDtl"> | string
-  conti_img_url?: Prisma.StringFilter<"ContiDtl"> | string
+  contiNotation?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
+  conti_img_url?: Prisma.StringNullableFilter<"ContiDtl"> | string | null
   contiOrder?: Prisma.IntFilter<"ContiDtl"> | number
   createdAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ContiDtl"> | Date | string
@@ -588,8 +592,8 @@ export type ContiDtlScalarWhereInput = {
 }
 
 export type ContiDtlCreateWithoutContiInput = {
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -598,8 +602,8 @@ export type ContiDtlCreateWithoutContiInput = {
 
 export type ContiDtlUncheckedCreateWithoutContiInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -634,8 +638,8 @@ export type ContiDtlUpdateManyWithWhereWithoutContiInput = {
 
 export type ContiDtlCreateManySheetInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -643,8 +647,8 @@ export type ContiDtlCreateManySheetInput = {
 }
 
 export type ContiDtlUpdateWithoutSheetInput = {
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -653,8 +657,8 @@ export type ContiDtlUpdateWithoutSheetInput = {
 
 export type ContiDtlUncheckedUpdateWithoutSheetInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -663,8 +667,8 @@ export type ContiDtlUncheckedUpdateWithoutSheetInput = {
 
 export type ContiDtlUncheckedUpdateManyWithoutSheetInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -673,8 +677,8 @@ export type ContiDtlUncheckedUpdateManyWithoutSheetInput = {
 
 export type ContiDtlCreateManyContiInput = {
   id?: number
-  contiNotation: string
-  conti_img_url: string
+  contiNotation?: string | null
+  conti_img_url?: string | null
   contiOrder: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -682,8 +686,8 @@ export type ContiDtlCreateManyContiInput = {
 }
 
 export type ContiDtlUpdateWithoutContiInput = {
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -692,8 +696,8 @@ export type ContiDtlUpdateWithoutContiInput = {
 
 export type ContiDtlUncheckedUpdateWithoutContiInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -702,8 +706,8 @@ export type ContiDtlUncheckedUpdateWithoutContiInput = {
 
 export type ContiDtlUncheckedUpdateManyWithoutContiInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiNotation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  conti_img_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contiOrder?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -784,8 +788,8 @@ export type $ContiDtlPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    contiNotation: string
-    conti_img_url: string
+    contiNotation: string | null
+    conti_img_url: string | null
     contiOrder: number
     createdAt: Date
     updatedAt: Date

@@ -40,8 +40,8 @@ model Conti{
 
 model ContiDtl{
   id  Int @id @default(autoincrement())
-  contiNotation String
-  conti_img_url String
+  contiNotation String?
+  conti_img_url String?
   contiOrder Int
   createdAt DateTime @default(now()) 
   updatedAt DateTime @default(now()) 
