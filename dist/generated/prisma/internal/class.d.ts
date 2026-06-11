@@ -36,6 +36,9 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get conti(): Prisma.ContiDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    get contiDtl(): Prisma.ContiDtlDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
     get member(): Prisma.MemberDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;

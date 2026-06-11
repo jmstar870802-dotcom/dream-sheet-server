@@ -9,21 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateContiDto = void 0;
+exports.UpdateContiDtlDto = void 0;
 const class_validator_1 = require("class-validator");
 const class_transformer_1 = require("class-transformer");
-const mapped_types_1 = require("@nestjs/mapped-types");
-const create_conti_dto_1 = require("./create-conti.dto");
-const update_conti_dtl_dto_1 = require("./update-conti-dtl.dto");
-class UpdateContiDto extends (0, mapped_types_1.PartialType)((0, mapped_types_1.OmitType)(create_conti_dto_1.CreateContiDto, ["contiDtl"])) {
-    contiDtl;
+const create_conti_dtl_dto_1 = require("./create-conti-dtl.dto");
+class UpdateContiDtlDto extends create_conti_dtl_dto_1.CreateContiDtlDto {
+    id;
 }
-exports.UpdateContiDto = UpdateContiDto;
+exports.UpdateContiDtlDto = UpdateContiDtlDto;
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsArray)(),
-    (0, class_validator_1.ValidateNested)({ each: true }),
-    (0, class_transformer_1.Type)(() => update_conti_dtl_dto_1.UpdateContiDtlDto),
-    __metadata("design:type", Array)
-], UpdateContiDto.prototype, "contiDtl", void 0);
-//# sourceMappingURL=update-conti.dto.js.map
+    (0, class_validator_1.IsInt)(),
+    (0, class_transformer_1.Type)(() => Number),
+    __metadata("design:type", Number)
+], UpdateContiDtlDto.prototype, "id", void 0);
+//# sourceMappingURL=update-conti-dtl.dto.js.map

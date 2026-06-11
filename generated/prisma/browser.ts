@@ -28,6 +28,11 @@ export type Sheet = Prisma.SheetModel
  */
 export type Conti = Prisma.ContiModel
 /**
+ * Model ContiDtl
+ * 
+ */
+export type ContiDtl = Prisma.ContiDtlModel
+/**
  * Model Member
  * 
  */

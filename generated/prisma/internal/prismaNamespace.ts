@@ -386,6 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Sheet: 'Sheet',
   Conti: 'Conti',
+  ContiDtl: 'ContiDtl',
   Member: 'Member',
   LeaderMember: 'LeaderMember',
   CellMember: 'CellMember',
@@ -406,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "sheet" | "conti" | "member" | "leaderMember" | "cellMember" | "reportHeader" | "reportContent"
+    modelProps: "sheet" | "conti" | "contiDtl" | "member" | "leaderMember" | "cellMember" | "reportHeader" | "reportContent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -555,6 +556,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ContiCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ContiCountAggregateOutputType> | number
+        }
+      }
+    }
+    ContiDtl: {
+      payload: Prisma.$ContiDtlPayload<ExtArgs>
+      fields: Prisma.ContiDtlFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ContiDtlFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ContiDtlFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        findFirst: {
+          args: Prisma.ContiDtlFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ContiDtlFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        findMany: {
+          args: Prisma.ContiDtlFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>[]
+        }
+        create: {
+          args: Prisma.ContiDtlCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        createMany: {
+          args: Prisma.ContiDtlCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ContiDtlCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>[]
+        }
+        delete: {
+          args: Prisma.ContiDtlDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        update: {
+          args: Prisma.ContiDtlUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        deleteMany: {
+          args: Prisma.ContiDtlDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ContiDtlUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ContiDtlUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>[]
+        }
+        upsert: {
+          args: Prisma.ContiDtlUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContiDtlPayload>
+        }
+        aggregate: {
+          args: Prisma.ContiDtlAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateContiDtl>
+        }
+        groupBy: {
+          args: Prisma.ContiDtlGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContiDtlGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ContiDtlCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContiDtlCountAggregateOutputType> | number
         }
       }
     }
@@ -985,14 +1060,26 @@ export const ContiScalarFieldEnum = {
   id: 'id',
   contiDate: 'contiDate',
   contiNote: 'contiNote',
-  contiNotation: 'contiNotation',
-  conti_img_url: 'conti_img_url',
+  contiLeader: 'contiLeader',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  SheetId: 'SheetId'
+  updatedAt: 'updatedAt'
 } as const
 
 export type ContiScalarFieldEnum = (typeof ContiScalarFieldEnum)[keyof typeof ContiScalarFieldEnum]
+
+
+export const ContiDtlScalarFieldEnum = {
+  id: 'id',
+  contiNotation: 'contiNotation',
+  conti_img_url: 'conti_img_url',
+  contiOrder: 'contiOrder',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  ContiId: 'ContiId',
+  SheetId: 'SheetId'
+} as const
+
+export type ContiDtlScalarFieldEnum = (typeof ContiDtlScalarFieldEnum)[keyof typeof ContiDtlScalarFieldEnum]
 
 
 export const MemberScalarFieldEnum = {
@@ -1244,6 +1331,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   sheet?: Prisma.SheetOmit
   conti?: Prisma.ContiOmit
+  contiDtl?: Prisma.ContiDtlOmit
   member?: Prisma.MemberOmit
   leaderMember?: Prisma.LeaderMemberOmit
   cellMember?: Prisma.CellMemberOmit

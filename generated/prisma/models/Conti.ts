@@ -28,90 +28,74 @@ export type AggregateConti = {
 
 export type ContiAvgAggregateOutputType = {
   id: number | null
-  SheetId: number | null
 }
 
 export type ContiSumAggregateOutputType = {
   id: number | null
-  SheetId: number | null
 }
 
 export type ContiMinAggregateOutputType = {
   id: number | null
   contiDate: string | null
   contiNote: string | null
-  contiNotation: string | null
-  conti_img_url: string | null
+  contiLeader: string | null
   createdAt: Date | null
   updatedAt: Date | null
-  SheetId: number | null
 }
 
 export type ContiMaxAggregateOutputType = {
   id: number | null
   contiDate: string | null
   contiNote: string | null
-  contiNotation: string | null
-  conti_img_url: string | null
+  contiLeader: string | null
   createdAt: Date | null
   updatedAt: Date | null
-  SheetId: number | null
 }
 
 export type ContiCountAggregateOutputType = {
   id: number
   contiDate: number
   contiNote: number
-  contiNotation: number
-  conti_img_url: number
+  contiLeader: number
   createdAt: number
   updatedAt: number
-  SheetId: number
   _all: number
 }
 
 
 export type ContiAvgAggregateInputType = {
   id?: true
-  SheetId?: true
 }
 
 export type ContiSumAggregateInputType = {
   id?: true
-  SheetId?: true
 }
 
 export type ContiMinAggregateInputType = {
   id?: true
   contiDate?: true
   contiNote?: true
-  contiNotation?: true
-  conti_img_url?: true
+  contiLeader?: true
   createdAt?: true
   updatedAt?: true
-  SheetId?: true
 }
 
 export type ContiMaxAggregateInputType = {
   id?: true
   contiDate?: true
   contiNote?: true
-  contiNotation?: true
-  conti_img_url?: true
+  contiLeader?: true
   createdAt?: true
   updatedAt?: true
-  SheetId?: true
 }
 
 export type ContiCountAggregateInputType = {
   id?: true
   contiDate?: true
   contiNote?: true
-  contiNotation?: true
-  conti_img_url?: true
+  contiLeader?: true
   createdAt?: true
   updatedAt?: true
-  SheetId?: true
   _all?: true
 }
 
@@ -205,11 +189,9 @@ export type ContiGroupByOutputType = {
   id: number
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt: Date
   updatedAt: Date
-  SheetId: number
   _count: ContiCountAggregateOutputType | null
   _avg: ContiAvgAggregateOutputType | null
   _sum: ContiSumAggregateOutputType | null
@@ -239,24 +221,20 @@ export type ContiWhereInput = {
   id?: Prisma.IntFilter<"Conti"> | number
   contiDate?: Prisma.StringFilter<"Conti"> | string
   contiNote?: Prisma.StringFilter<"Conti"> | string
-  contiNotation?: Prisma.StringFilter<"Conti"> | string
-  conti_img_url?: Prisma.StringFilter<"Conti"> | string
+  contiLeader?: Prisma.StringFilter<"Conti"> | string
   createdAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
-  SheetId?: Prisma.IntFilter<"Conti"> | number
-  sheet?: Prisma.XOR<Prisma.SheetScalarRelationFilter, Prisma.SheetWhereInput>
+  contiDtl?: Prisma.ContiDtlListRelationFilter
 }
 
 export type ContiOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   contiDate?: Prisma.SortOrder
   contiNote?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiLeader?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
-  sheet?: Prisma.SheetOrderByWithRelationInput
+  contiDtl?: Prisma.ContiDtlOrderByRelationAggregateInput
 }
 
 export type ContiWhereUniqueInput = Prisma.AtLeast<{
@@ -266,23 +244,19 @@ export type ContiWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ContiWhereInput | Prisma.ContiWhereInput[]
   contiDate?: Prisma.StringFilter<"Conti"> | string
   contiNote?: Prisma.StringFilter<"Conti"> | string
-  contiNotation?: Prisma.StringFilter<"Conti"> | string
-  conti_img_url?: Prisma.StringFilter<"Conti"> | string
+  contiLeader?: Prisma.StringFilter<"Conti"> | string
   createdAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
-  SheetId?: Prisma.IntFilter<"Conti"> | number
-  sheet?: Prisma.XOR<Prisma.SheetScalarRelationFilter, Prisma.SheetWhereInput>
+  contiDtl?: Prisma.ContiDtlListRelationFilter
 }, "id">
 
 export type ContiOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   contiDate?: Prisma.SortOrder
   contiNote?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiLeader?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
   _count?: Prisma.ContiCountOrderByAggregateInput
   _avg?: Prisma.ContiAvgOrderByAggregateInput
   _max?: Prisma.ContiMaxOrderByAggregateInput
@@ -297,71 +271,62 @@ export type ContiScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Conti"> | number
   contiDate?: Prisma.StringWithAggregatesFilter<"Conti"> | string
   contiNote?: Prisma.StringWithAggregatesFilter<"Conti"> | string
-  contiNotation?: Prisma.StringWithAggregatesFilter<"Conti"> | string
-  conti_img_url?: Prisma.StringWithAggregatesFilter<"Conti"> | string
+  contiLeader?: Prisma.StringWithAggregatesFilter<"Conti"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Conti"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Conti"> | Date | string
-  SheetId?: Prisma.IntWithAggregatesFilter<"Conti"> | number
 }
 
 export type ContiCreateInput = {
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  sheet: Prisma.SheetCreateNestedOneWithoutContiInput
+  contiDtl?: Prisma.ContiDtlCreateNestedManyWithoutContiInput
 }
 
 export type ContiUncheckedCreateInput = {
   id?: number
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  SheetId: number
+  contiDtl?: Prisma.ContiDtlUncheckedCreateNestedManyWithoutContiInput
 }
 
 export type ContiUpdateInput = {
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sheet?: Prisma.SheetUpdateOneRequiredWithoutContiNestedInput
+  contiDtl?: Prisma.ContiDtlUpdateManyWithoutContiNestedInput
 }
 
 export type ContiUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  SheetId?: Prisma.IntFieldUpdateOperationsInput | number
+  contiDtl?: Prisma.ContiDtlUncheckedUpdateManyWithoutContiNestedInput
 }
 
 export type ContiCreateManyInput = {
   id?: number
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  SheetId: number
 }
 
 export type ContiUpdateManyMutationInput = {
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -370,280 +335,204 @@ export type ContiUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  SheetId?: Prisma.IntFieldUpdateOperationsInput | number
-}
-
-export type ContiListRelationFilter = {
-  every?: Prisma.ContiWhereInput
-  some?: Prisma.ContiWhereInput
-  none?: Prisma.ContiWhereInput
-}
-
-export type ContiOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
 }
 
 export type ContiCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   contiDate?: Prisma.SortOrder
   contiNote?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiLeader?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
 }
 
 export type ContiAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
 }
 
 export type ContiMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   contiDate?: Prisma.SortOrder
   contiNote?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiLeader?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
 }
 
 export type ContiMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   contiDate?: Prisma.SortOrder
   contiNote?: Prisma.SortOrder
-  contiNotation?: Prisma.SortOrder
-  conti_img_url?: Prisma.SortOrder
+  contiLeader?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
 }
 
 export type ContiSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  SheetId?: Prisma.SortOrder
 }
 
-export type ContiCreateNestedManyWithoutSheetInput = {
-  create?: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput> | Prisma.ContiCreateWithoutSheetInput[] | Prisma.ContiUncheckedCreateWithoutSheetInput[]
-  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutSheetInput | Prisma.ContiCreateOrConnectWithoutSheetInput[]
-  createMany?: Prisma.ContiCreateManySheetInputEnvelope
-  connect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
+export type ContiScalarRelationFilter = {
+  is?: Prisma.ContiWhereInput
+  isNot?: Prisma.ContiWhereInput
 }
 
-export type ContiUncheckedCreateNestedManyWithoutSheetInput = {
-  create?: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput> | Prisma.ContiCreateWithoutSheetInput[] | Prisma.ContiUncheckedCreateWithoutSheetInput[]
-  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutSheetInput | Prisma.ContiCreateOrConnectWithoutSheetInput[]
-  createMany?: Prisma.ContiCreateManySheetInputEnvelope
-  connect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
+export type ContiCreateNestedOneWithoutContiDtlInput = {
+  create?: Prisma.XOR<Prisma.ContiCreateWithoutContiDtlInput, Prisma.ContiUncheckedCreateWithoutContiDtlInput>
+  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutContiDtlInput
+  connect?: Prisma.ContiWhereUniqueInput
 }
 
-export type ContiUpdateManyWithoutSheetNestedInput = {
-  create?: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput> | Prisma.ContiCreateWithoutSheetInput[] | Prisma.ContiUncheckedCreateWithoutSheetInput[]
-  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutSheetInput | Prisma.ContiCreateOrConnectWithoutSheetInput[]
-  upsert?: Prisma.ContiUpsertWithWhereUniqueWithoutSheetInput | Prisma.ContiUpsertWithWhereUniqueWithoutSheetInput[]
-  createMany?: Prisma.ContiCreateManySheetInputEnvelope
-  set?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  disconnect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  delete?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  connect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  update?: Prisma.ContiUpdateWithWhereUniqueWithoutSheetInput | Prisma.ContiUpdateWithWhereUniqueWithoutSheetInput[]
-  updateMany?: Prisma.ContiUpdateManyWithWhereWithoutSheetInput | Prisma.ContiUpdateManyWithWhereWithoutSheetInput[]
-  deleteMany?: Prisma.ContiScalarWhereInput | Prisma.ContiScalarWhereInput[]
+export type ContiUpdateOneRequiredWithoutContiDtlNestedInput = {
+  create?: Prisma.XOR<Prisma.ContiCreateWithoutContiDtlInput, Prisma.ContiUncheckedCreateWithoutContiDtlInput>
+  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutContiDtlInput
+  upsert?: Prisma.ContiUpsertWithoutContiDtlInput
+  connect?: Prisma.ContiWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ContiUpdateToOneWithWhereWithoutContiDtlInput, Prisma.ContiUpdateWithoutContiDtlInput>, Prisma.ContiUncheckedUpdateWithoutContiDtlInput>
 }
 
-export type ContiUncheckedUpdateManyWithoutSheetNestedInput = {
-  create?: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput> | Prisma.ContiCreateWithoutSheetInput[] | Prisma.ContiUncheckedCreateWithoutSheetInput[]
-  connectOrCreate?: Prisma.ContiCreateOrConnectWithoutSheetInput | Prisma.ContiCreateOrConnectWithoutSheetInput[]
-  upsert?: Prisma.ContiUpsertWithWhereUniqueWithoutSheetInput | Prisma.ContiUpsertWithWhereUniqueWithoutSheetInput[]
-  createMany?: Prisma.ContiCreateManySheetInputEnvelope
-  set?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  disconnect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  delete?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  connect?: Prisma.ContiWhereUniqueInput | Prisma.ContiWhereUniqueInput[]
-  update?: Prisma.ContiUpdateWithWhereUniqueWithoutSheetInput | Prisma.ContiUpdateWithWhereUniqueWithoutSheetInput[]
-  updateMany?: Prisma.ContiUpdateManyWithWhereWithoutSheetInput | Prisma.ContiUpdateManyWithWhereWithoutSheetInput[]
-  deleteMany?: Prisma.ContiScalarWhereInput | Prisma.ContiScalarWhereInput[]
-}
-
-export type ContiCreateWithoutSheetInput = {
+export type ContiCreateWithoutContiDtlInput = {
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
-export type ContiUncheckedCreateWithoutSheetInput = {
+export type ContiUncheckedCreateWithoutContiDtlInput = {
   id?: number
   contiDate: string
   contiNote: string
-  contiNotation: string
-  conti_img_url: string
+  contiLeader: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
-export type ContiCreateOrConnectWithoutSheetInput = {
+export type ContiCreateOrConnectWithoutContiDtlInput = {
   where: Prisma.ContiWhereUniqueInput
-  create: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput>
+  create: Prisma.XOR<Prisma.ContiCreateWithoutContiDtlInput, Prisma.ContiUncheckedCreateWithoutContiDtlInput>
 }
 
-export type ContiCreateManySheetInputEnvelope = {
-  data: Prisma.ContiCreateManySheetInput | Prisma.ContiCreateManySheetInput[]
-  skipDuplicates?: boolean
+export type ContiUpsertWithoutContiDtlInput = {
+  update: Prisma.XOR<Prisma.ContiUpdateWithoutContiDtlInput, Prisma.ContiUncheckedUpdateWithoutContiDtlInput>
+  create: Prisma.XOR<Prisma.ContiCreateWithoutContiDtlInput, Prisma.ContiUncheckedCreateWithoutContiDtlInput>
+  where?: Prisma.ContiWhereInput
 }
 
-export type ContiUpsertWithWhereUniqueWithoutSheetInput = {
-  where: Prisma.ContiWhereUniqueInput
-  update: Prisma.XOR<Prisma.ContiUpdateWithoutSheetInput, Prisma.ContiUncheckedUpdateWithoutSheetInput>
-  create: Prisma.XOR<Prisma.ContiCreateWithoutSheetInput, Prisma.ContiUncheckedCreateWithoutSheetInput>
+export type ContiUpdateToOneWithWhereWithoutContiDtlInput = {
+  where?: Prisma.ContiWhereInput
+  data: Prisma.XOR<Prisma.ContiUpdateWithoutContiDtlInput, Prisma.ContiUncheckedUpdateWithoutContiDtlInput>
 }
 
-export type ContiUpdateWithWhereUniqueWithoutSheetInput = {
-  where: Prisma.ContiWhereUniqueInput
-  data: Prisma.XOR<Prisma.ContiUpdateWithoutSheetInput, Prisma.ContiUncheckedUpdateWithoutSheetInput>
-}
-
-export type ContiUpdateManyWithWhereWithoutSheetInput = {
-  where: Prisma.ContiScalarWhereInput
-  data: Prisma.XOR<Prisma.ContiUpdateManyMutationInput, Prisma.ContiUncheckedUpdateManyWithoutSheetInput>
-}
-
-export type ContiScalarWhereInput = {
-  AND?: Prisma.ContiScalarWhereInput | Prisma.ContiScalarWhereInput[]
-  OR?: Prisma.ContiScalarWhereInput[]
-  NOT?: Prisma.ContiScalarWhereInput | Prisma.ContiScalarWhereInput[]
-  id?: Prisma.IntFilter<"Conti"> | number
-  contiDate?: Prisma.StringFilter<"Conti"> | string
-  contiNote?: Prisma.StringFilter<"Conti"> | string
-  contiNotation?: Prisma.StringFilter<"Conti"> | string
-  conti_img_url?: Prisma.StringFilter<"Conti"> | string
-  createdAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Conti"> | Date | string
-  SheetId?: Prisma.IntFilter<"Conti"> | number
-}
-
-export type ContiCreateManySheetInput = {
-  id?: number
-  contiDate: string
-  contiNote: string
-  contiNotation: string
-  conti_img_url: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ContiUpdateWithoutSheetInput = {
+export type ContiUpdateWithoutContiDtlInput = {
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ContiUncheckedUpdateWithoutSheetInput = {
+export type ContiUncheckedUpdateWithoutContiDtlInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   contiDate?: Prisma.StringFieldUpdateOperationsInput | string
   contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
+  contiLeader?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ContiUncheckedUpdateManyWithoutSheetInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  contiDate?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNote?: Prisma.StringFieldUpdateOperationsInput | string
-  contiNotation?: Prisma.StringFieldUpdateOperationsInput | string
-  conti_img_url?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+
+/**
+ * Count Type ContiCountOutputType
+ */
+
+export type ContiCountOutputType = {
+  contiDtl: number
 }
 
+export type ContiCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  contiDtl?: boolean | ContiCountOutputTypeCountContiDtlArgs
+}
+
+/**
+ * ContiCountOutputType without action
+ */
+export type ContiCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ContiCountOutputType
+   */
+  select?: Prisma.ContiCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ContiCountOutputType without action
+ */
+export type ContiCountOutputTypeCountContiDtlArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ContiDtlWhereInput
+}
 
 
 export type ContiSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   contiDate?: boolean
   contiNote?: boolean
-  contiNotation?: boolean
-  conti_img_url?: boolean
+  contiLeader?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  SheetId?: boolean
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
+  contiDtl?: boolean | Prisma.Conti$contiDtlArgs<ExtArgs>
+  _count?: boolean | Prisma.ContiCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["conti"]>
 
 export type ContiSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   contiDate?: boolean
   contiNote?: boolean
-  contiNotation?: boolean
-  conti_img_url?: boolean
+  contiLeader?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  SheetId?: boolean
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["conti"]>
 
 export type ContiSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   contiDate?: boolean
   contiNote?: boolean
-  contiNotation?: boolean
-  conti_img_url?: boolean
+  contiLeader?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  SheetId?: boolean
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["conti"]>
 
 export type ContiSelectScalar = {
   id?: boolean
   contiDate?: boolean
   contiNote?: boolean
-  contiNotation?: boolean
-  conti_img_url?: boolean
+  contiLeader?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  SheetId?: boolean
 }
 
-export type ContiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "contiDate" | "contiNote" | "contiNotation" | "conti_img_url" | "createdAt" | "updatedAt" | "SheetId", ExtArgs["result"]["conti"]>
+export type ContiOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "contiDate" | "contiNote" | "contiLeader" | "createdAt" | "updatedAt", ExtArgs["result"]["conti"]>
 export type ContiInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
+  contiDtl?: boolean | Prisma.Conti$contiDtlArgs<ExtArgs>
+  _count?: boolean | Prisma.ContiCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type ContiIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
-}
-export type ContiIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sheet?: boolean | Prisma.SheetDefaultArgs<ExtArgs>
-}
+export type ContiIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type ContiIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $ContiPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Conti"
   objects: {
-    sheet: Prisma.$SheetPayload<ExtArgs>
+    contiDtl: Prisma.$ContiDtlPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     contiDate: string
     contiNote: string
-    contiNotation: string
-    conti_img_url: string
+    contiLeader: string
     createdAt: Date
     updatedAt: Date
-    SheetId: number
   }, ExtArgs["result"]["conti"]>
   composites: {}
 }
@@ -1038,7 +927,7 @@ readonly fields: ContiFieldRefs;
  */
 export interface Prisma__ContiClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  sheet<T extends Prisma.SheetDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SheetDefaultArgs<ExtArgs>>): Prisma.Prisma__SheetClient<runtime.Types.Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  contiDtl<T extends Prisma.Conti$contiDtlArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Conti$contiDtlArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContiDtlPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1071,11 +960,9 @@ export interface ContiFieldRefs {
   readonly id: Prisma.FieldRef<"Conti", 'Int'>
   readonly contiDate: Prisma.FieldRef<"Conti", 'String'>
   readonly contiNote: Prisma.FieldRef<"Conti", 'String'>
-  readonly contiNotation: Prisma.FieldRef<"Conti", 'String'>
-  readonly conti_img_url: Prisma.FieldRef<"Conti", 'String'>
+  readonly contiLeader: Prisma.FieldRef<"Conti", 'String'>
   readonly createdAt: Prisma.FieldRef<"Conti", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Conti", 'DateTime'>
-  readonly SheetId: Prisma.FieldRef<"Conti", 'Int'>
 }
     
 
@@ -1330,10 +1217,6 @@ export type ContiCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    */
   data: Prisma.ContiCreateManyInput | Prisma.ContiCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ContiIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1404,10 +1287,6 @@ export type ContiUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * Limit how many Contis to update.
    */
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ContiIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1474,6 +1353,30 @@ export type ContiDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Limit how many Contis to delete.
    */
   limit?: number
+}
+
+/**
+ * Conti.contiDtl
+ */
+export type Conti$contiDtlArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ContiDtl
+   */
+  select?: Prisma.ContiDtlSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ContiDtl
+   */
+  omit?: Prisma.ContiDtlOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ContiDtlInclude<ExtArgs> | null
+  where?: Prisma.ContiDtlWhereInput
+  orderBy?: Prisma.ContiDtlOrderByWithRelationInput | Prisma.ContiDtlOrderByWithRelationInput[]
+  cursor?: Prisma.ContiDtlWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ContiDtlScalarFieldEnum | Prisma.ContiDtlScalarFieldEnum[]
 }
 
 /**

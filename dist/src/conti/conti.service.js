@@ -12,18 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContiService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const contiDtlInclude = {
+    contiDtl: {
+        include: { sheet: true },
+        orderBy: { contiOrder: "asc" },
+    },
+};
 let ContiService = class ContiService {
     prisma;
     constructor(prisma) {
         this.prisma = prisma;
     }
     async findAll(dto) {
-        const { SheetId, contiDate, page = 1, limit = 10, sortKey = "id", sortDir = "asc", } = dto;
+        const { contiDate, page = 1, limit = 10, sortKey = "id", sortDir = "asc" } = dto;
         const where = {
-            ...(SheetId && { SheetId }),
-            ...(contiDate && {
-                contiDate: { contains: contiDate },
-            }),
+            ...(contiDate && { contiDate: { contains: contiDate } }),
         };
         const [total, data] = await this.prisma.$transaction([
             this.prisma.conti.count({ where }),
@@ -32,6 +35,7 @@ let ContiService = class ContiService {
                 orderBy: { [sortKey]: sortDir },
                 skip: (page - 1) * limit,
                 take: limit,
+                include: contiDtlInclude,
             }),
         ]);
         const totalPages = Math.ceil(total / limit);
@@ -48,20 +52,39 @@ let ContiService = class ContiService {
         };
     }
     async findOne(id) {
-        const conti = await this.prisma.conti.findUnique({ where: { id } });
+        const conti = await this.prisma.conti.findUnique({
+            where: { id },
+            include: contiDtlInclude,
+        });
         if (!conti) {
             throw new common_1.NotFoundException(`${id}번 콘티는 존재하지 않습니다.`);
         }
         return conti;
     }
-    async create(createContiDto) {
-        return await this.prisma.conti.create({ data: createContiDto });
+    async create(dto) {
+        const { contiDtl, ...header } = dto;
+        return await this.prisma.conti.create({
+            data: {
+                ...header,
+                contiDtl: { create: contiDtl },
+            },
+            include: contiDtlInclude,
+        });
     }
-    async update(id, updateContiDto) {
+    async update(id, dto) {
         await this.findOne(id);
-        return await this.prisma.conti.update({
-            where: { id },
-            data: updateContiDto,
+        const { contiDtl, ...header } = dto;
+        return await this.prisma.$transaction(async (tx) => {
+            await tx.conti.update({ where: { id }, data: header });
+            if (contiDtl !== undefined) {
+                await tx.contiDtl.deleteMany({ where: { ContiId: id } });
+                if (contiDtl.length > 0) {
+                    await tx.contiDtl.createMany({
+                        data: contiDtl.map(({ id: _id, ...dtl }) => ({ ...dtl, ContiId: id })),
+                    });
+                }
+            }
+            return tx.conti.findUnique({ where: { id }, include: contiDtlInclude });
         });
     }
     async remove(id) {

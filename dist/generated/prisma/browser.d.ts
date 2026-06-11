@@ -4,6 +4,7 @@ export * as $Enums from './enums.js';
 export * from './enums.js';
 export type Sheet = Prisma.SheetModel;
 export type Conti = Prisma.ContiModel;
+export type ContiDtl = Prisma.ContiDtlModel;
 export type Member = Prisma.MemberModel;
 export type LeaderMember = Prisma.LeaderMemberModel;
 export type CellMember = Prisma.CellMemberModel;

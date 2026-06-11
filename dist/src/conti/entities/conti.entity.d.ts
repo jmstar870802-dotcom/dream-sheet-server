@@ -2,9 +2,7 @@ export declare class ContiModel {
     id: number;
     contiDate: string;
     contiNote: string;
-    contiNotation: string;
-    conti_img_url: string;
-    SheetId: number;
+    contiLeader: string;
     createdAt: Date;
     updatedAt: Date;
 }

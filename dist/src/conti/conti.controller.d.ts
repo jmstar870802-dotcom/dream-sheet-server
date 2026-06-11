@@ -7,34 +7,94 @@ export declare class ContiController {
     constructor(contiService: ContiService);
     findAll(query: QueryContiDto): Promise<import("../common/entities/paginatedResult").PaginatedResult<any>>;
     findOne(id: string): Promise<{
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
+        contiLeader: string;
     }>;
     create(createContiDto: CreateContiDto): Promise<{
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
+        contiLeader: string;
     }>;
-    update(id: string, updateContiDto: UpdateContiDto): Promise<{
+    update(id: string, updateContiDto: UpdateContiDto): Promise<({
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
-    }>;
+        contiLeader: string;
+    }) | null>;
     remove(id: string): Promise<void>;
 }

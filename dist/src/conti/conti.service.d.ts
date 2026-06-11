@@ -8,34 +8,94 @@ export declare class ContiService {
     constructor(prisma: PrismaService);
     findAll(dto: QueryContiDto): Promise<PaginatedResult<any>>;
     findOne(id: number): Promise<{
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
+        contiLeader: string;
     }>;
-    create(createContiDto: CreateContiDto): Promise<{
+    create(dto: CreateContiDto): Promise<{
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
+        contiLeader: string;
     }>;
-    update(id: number, updateContiDto: UpdateContiDto): Promise<{
+    update(id: number, dto: UpdateContiDto): Promise<({
+        contiDtl: ({
+            sheet: {
+                id: number;
+                title: string;
+                key: string;
+                lyrics: string;
+                notation: string;
+                img_url: string;
+                createdAt: Date;
+                updatedAt: Date;
+            };
+        } & {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            contiNotation: string;
+            conti_img_url: string;
+            contiOrder: number;
+            ContiId: number;
+            SheetId: number;
+        })[];
+    } & {
         id: number;
         createdAt: Date;
         updatedAt: Date;
         contiDate: string;
         contiNote: string;
-        contiNotation: string;
-        conti_img_url: string;
-        SheetId: number;
-    }>;
+        contiLeader: string;
+    }) | null>;
     remove(id: number): Promise<void>;
 }

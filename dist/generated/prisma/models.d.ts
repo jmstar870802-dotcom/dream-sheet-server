@@ -1,5 +1,6 @@
 export type * from './models/Sheet.js';
 export type * from './models/Conti.js';
+export type * from './models/ContiDtl.js';
 export type * from './models/Member.js';
 export type * from './models/LeaderMember.js';
 export type * from './models/CellMember.js';

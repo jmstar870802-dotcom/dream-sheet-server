@@ -13,7 +13,6 @@ exports.QueryContiDto = void 0;
 const class_validator_1 = require("class-validator");
 const class_transformer_1 = require("class-transformer");
 class QueryContiDto {
-    SheetId;
     contiDate;
     page = 1;
     limit = 10;
@@ -21,12 +20,6 @@ class QueryContiDto {
     sortDir = "asc";
 }
 exports.QueryContiDto = QueryContiDto;
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_transformer_1.Type)(() => Number),
-    (0, class_validator_1.IsInt)(),
-    __metadata("design:type", Number)
-], QueryContiDto.prototype, "SheetId", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),

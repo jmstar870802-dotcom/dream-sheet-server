@@ -4,11 +4,6 @@ import { Type } from "class-transformer";
 
 export class QueryContiDto {
   @IsOptional()
-  @Type(() => Number)
-  @IsInt()
-  SheetId?: number;
-
-  @IsOptional()
   @IsString()
   contiDate?: string;
 

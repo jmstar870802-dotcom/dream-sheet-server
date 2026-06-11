@@ -23,23 +23,35 @@ model Sheet{
   createdAt DateTime @default(now()) 
   updatedAt DateTime @default(now()) 
 
-  Conti Conti[]
+  contiDtl ContiDtl[]
 }
 
 model Conti{
   id  Int @id @default(autoincrement())
   contiDate String
   contiNote String
-  contiNotation String
-  conti_img_url String
+  contiLeader String
   createdAt DateTime @default(now()) 
   updatedAt DateTime @default(now()) 
 
+  contiDtl ContiDtl[]
+}
+
+
+model ContiDtl{
+  id  Int @id @default(autoincrement())
+  contiNotation String
+  conti_img_url String
+  contiOrder Int
+  createdAt DateTime @default(now()) 
+  updatedAt DateTime @default(now()) 
+
+  ContiId Int
+  conti Conti @relation(fields: [ContiId], references: [id], onDelete: Cascade)
   SheetId Int
   sheet Sheet @relation(fields: [SheetId], references: [id], onDelete: Cascade)
   
 }
-
 model Member {
   id Int @id @default(autoincrement())
   userName String

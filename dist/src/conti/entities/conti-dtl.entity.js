@@ -9,31 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContiModel = void 0;
+exports.ContiDtlModel = void 0;
 const class_validator_1 = require("class-validator");
+const class_transformer_1 = require("class-transformer");
 const empty_validation_message_1 = require("../../common/validation-message/empty-validation.message");
-class ContiModel {
+class ContiDtlModel {
     id;
-    contiDate;
-    contiNote;
-    contiLeader;
-    createdAt;
-    updatedAt;
+    contiNotation;
+    conti_img_url;
+    contiOrder;
+    SheetId;
 }
-exports.ContiModel = ContiModel;
+exports.ContiDtlModel = ContiDtlModel;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ContiDtlModel.prototype, "contiNotation", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ContiDtlModel.prototype, "conti_img_url", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: empty_validation_message_1.emptyValidationMessage }),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], ContiModel.prototype, "contiDate", void 0);
+    (0, class_validator_1.IsInt)(),
+    (0, class_transformer_1.Type)(() => Number),
+    __metadata("design:type", Number)
+], ContiDtlModel.prototype, "contiOrder", void 0);
 __decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], ContiModel.prototype, "contiNote", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], ContiModel.prototype, "contiLeader", void 0);
-//# sourceMappingURL=conti.entity.js.map
+    (0, class_validator_1.IsNotEmpty)({ message: empty_validation_message_1.emptyValidationMessage }),
+    (0, class_validator_1.IsInt)(),
+    (0, class_transformer_1.Type)(() => Number),
+    __metadata("design:type", Number)
+], ContiDtlModel.prototype, "SheetId", void 0);
+//# sourceMappingURL=conti-dtl.entity.js.map
