@@ -21,9 +21,9 @@ export class QueryContiDto {
 
   @IsOptional()
   @IsIn(["id", "contiDate"])
-  sortKey?: string = "id";
+  sortKey?: string = "contiDate";
 
   @IsOptional()
   @IsIn(["asc", "desc"])
-  sortDir?: "asc" | "desc" = "asc";
+  sortDir?: "asc" | "desc" = "desc";
 }
