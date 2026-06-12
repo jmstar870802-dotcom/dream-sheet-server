@@ -19,7 +19,7 @@ export class ContiService {
   constructor(private prisma: PrismaService) {}
 
   async findAll(dto: QueryContiDto): Promise<PaginatedResult<any>> {
-    const { contiDate, page = 1, limit = 10, sortKey = "id", sortDir = "asc" } = dto;
+    const { contiDate, page = 1, limit = 10, sortKey = "contiDate", sortDir = "desc" } = dto;
 
     const where: Prisma.ContiWhereInput = {
       ...(contiDate && { contiDate: { contains: contiDate } }),
