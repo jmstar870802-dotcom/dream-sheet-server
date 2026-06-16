@@ -2,7 +2,7 @@ import {IsIn, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { emptyValidationMessage } from "src/common/validation-message/empty-validation.message";
 
 
-const keys = ['C','D','E','F','G','A','Ab','B','Bb'];
+const keys = ['C','D','E','F','G','A','Ab','B','Bb',"Dm","Em","Gm","Bm"];
 
 export class SheetModel {
 
